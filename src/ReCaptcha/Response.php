@@ -90,6 +90,13 @@ class Response
     public static function fromJson($json)
     {
         $responseData = json_decode($json, true);
+        
+        if (!$responseData)
+		{
+			$json = strstr($json,'{');
+			$json = substr($json, 0, strpos($json,'}') + 1);
+			$responseData = json_decode($json, true);
+		}
 
         if (!$responseData) {
             return new Response(false, array(ReCaptcha::E_INVALID_JSON));
