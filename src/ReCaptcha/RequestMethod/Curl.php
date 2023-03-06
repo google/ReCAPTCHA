@@ -34,6 +34,8 @@
 
 namespace ReCaptcha\RequestMethod;
 
+use function \curl_init as root_curl;
+
 /**
  * Convenience wrapper around the cURL functions to allow mocking.
  */
@@ -46,7 +48,7 @@ class Curl
      */
     public function init($url = null)
     {
-        return curl_init($url);
+        return root_curl($url);
     }
 
     /**
