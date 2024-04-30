@@ -264,7 +264,7 @@ class ReCaptcha
     /**
      * Provide a timeout in seconds to test against the challenge timestamp in verify()
      *
-     * @param int $timeoutSeconds Expected hostname
+     * @param int $timeoutSeconds Maximum time (seconds) elapsed since the challenge timestamp
      * @return ReCaptcha Current instance for fluent interface
      */
     public function setChallengeTimeout($timeoutSeconds)
