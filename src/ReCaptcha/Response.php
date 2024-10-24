@@ -87,7 +87,7 @@ class Response
      * @param string $json
      * @return \ReCaptcha\Response
      */
-    public static function fromJson($json)
+    public static function fromJson(string $json)
     {
         $responseData = json_decode($json, true);
 
@@ -123,7 +123,7 @@ class Response
      * @param string $action
      * @param array $errorCodes
      */
-    public function __construct($success, array $errorCodes = array(), $hostname = '', $challengeTs = '', $apkPackageName = '', $score = null, $action = '')
+    public function __construct(bool $success, array $errorCodes = [], string $hostname = '', string $challengeTs = '', string $apkPackageName = '', ?float $score = null, string $action = '')
     {
         $this->success = $success;
         $this->hostname = $hostname;

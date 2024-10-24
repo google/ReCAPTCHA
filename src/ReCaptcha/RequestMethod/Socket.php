@@ -53,7 +53,7 @@ class Socket
      * @param float $timeout
      * @return resource
      */
-    public function fsockopen($hostname, $port = -1, &$errno = 0, &$errstr = '', $timeout = null)
+    public function fsockopen(string $hostname, int $port = -1, int &$errno = 0, string &$errstr = '', ?float $timeout = null)
     {
         $this->handle = fsockopen($hostname, $port, $errno, $errstr, (is_null($timeout) ? ini_get("default_socket_timeout") : $timeout));
 
@@ -71,7 +71,7 @@ class Socket
      * @param int $length
      * @return int | bool
      */
-    public function fwrite($string, $length = null)
+    public function fwrite(string $string, ?int $length = null)
     {
         return fwrite($this->handle, $string, (is_null($length) ? strlen($string) : $length));
     }
@@ -83,7 +83,7 @@ class Socket
      * @param int $length
      * @return string
      */
-    public function fgets($length = null)
+    public function fgets(?int $length = null)
     {
         return fgets($this->handle, $length);
     }

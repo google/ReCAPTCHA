@@ -59,7 +59,7 @@ class SocketPost implements RequestMethod
      * @param \ReCaptcha\RequestMethod\Socket $socket optional socket, injectable for testing
      * @param string $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
-    public function __construct(Socket $socket = null, $siteVerifyUrl = null)
+    public function __construct(?Socket $socket = null, ?string $siteVerifyUrl = null)
     {
         $this->socket = (is_null($socket)) ? new Socket() : $socket;
         $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;

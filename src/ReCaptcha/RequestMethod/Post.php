@@ -54,7 +54,7 @@ class Post implements RequestMethod
      *
      * @param string $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
-    public function __construct($siteVerifyUrl = null)
+    public function __construct(?string $siteVerifyUrl = null)
     {
         $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;
     }

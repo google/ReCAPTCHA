@@ -136,7 +136,7 @@ class ReCaptcha
      * @param RequestMethod $requestMethod method used to send the request. Defaults to POST.
      * @throws \RuntimeException if $secret is invalid
      */
-    public function __construct($secret, RequestMethod $requestMethod = null)
+    public function __construct($secret, ?RequestMethod $requestMethod = null)
     {
         if (empty($secret)) {
             throw new \RuntimeException('No secret provided');
@@ -158,7 +158,7 @@ class ReCaptcha
      * @param string $remoteIp The end user's IP address.
      * @return Response Response from the service.
      */
-    public function verify($response, $remoteIp = null)
+    public function verify(string $response, ?string $remoteIp = null)
     {
         // Discard empty solution submissions
         if (empty($response)) {
@@ -217,7 +217,7 @@ class ReCaptcha
      * @param string $hostname Expected hostname
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setExpectedHostname($hostname)
+    public function setExpectedHostname(string $hostname)
     {
         $this->hostname = $hostname;
         return $this;
@@ -229,7 +229,7 @@ class ReCaptcha
      * @param string $apkPackageName Expected APK package name
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setExpectedApkPackageName($apkPackageName)
+    public function setExpectedApkPackageName(string $apkPackageName)
     {
         $this->apkPackageName = $apkPackageName;
         return $this;
@@ -242,7 +242,7 @@ class ReCaptcha
      * @param string $action Expected action
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setExpectedAction($action)
+    public function setExpectedAction(string $action)
     {
         $this->action = $action;
         return $this;
@@ -255,7 +255,7 @@ class ReCaptcha
      * @param float $threshold Expected threshold
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setScoreThreshold($threshold)
+    public function setScoreThreshold(float $threshold)
     {
         $this->threshold = floatval($threshold);
         return $this;
@@ -267,7 +267,7 @@ class ReCaptcha
      * @param int $timeoutSeconds Expected hostname
      * @return ReCaptcha Current instance for fluent interface
      */
-    public function setChallengeTimeout($timeoutSeconds)
+    public function setChallengeTimeout(int $timeoutSeconds)
     {
         $this->timeoutSeconds = $timeoutSeconds;
         return $this;

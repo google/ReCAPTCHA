@@ -63,7 +63,7 @@ class CurlPost implements RequestMethod
      * @param Curl $curl Curl resource
      * @param string $siteVerifyUrl URL for reCAPTCHA siteverify API
      */
-    public function __construct(Curl $curl = null, $siteVerifyUrl = null)
+    public function __construct(?Curl $curl = null, ?string $siteVerifyUrl = null)
     {
         $this->curl = (is_null($curl)) ? new Curl() : $curl;
         $this->siteVerifyUrl = (is_null($siteVerifyUrl)) ? ReCaptcha::SITE_VERIFY_URL : $siteVerifyUrl;

@@ -44,7 +44,7 @@ class Curl
      * @param string $url
      * @return resource cURL handle
      */
-    public function init($url = null)
+    public function init(?string $url = null)
     {
         return curl_init($url);
     }
